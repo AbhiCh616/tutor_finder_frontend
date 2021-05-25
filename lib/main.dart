@@ -37,12 +37,31 @@ class MyApp extends StatelessWidget {
           fontSize: 10, fontWeight: FontWeight.w400, letterSpacing: 1.5),
     );
 
+    final ColorScheme colorScheme = ColorScheme.light(
+      primary: Color(0xFFF0F0F0),
+      secondary: Color(0xFF872CC2),
+      primaryVariant: Color(0xFF540091),
+      secondaryVariant: Color(0xFFBEBEBE),
+      onPrimary: Color(0xFF000000),
+      onSecondary: Color(0xFFFFFFFF),
+      surface: Color(0xFFFFFFFF),
+      onSurface: Color(0xFF000000),
+      background: Color(0xFFF0F0F0),
+      onBackground: Color(0xFF000000),
+      error: Color(0xFFF44336),
+      onError: Color(0xFFFFFFFF),
+      brightness: Brightness.light,
+    );
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
         textTheme: textTheme,
         primaryTextTheme: textTheme,
+        colorScheme: colorScheme,
+        primaryColor: colorScheme.primary,
+        accentColor: colorScheme.secondary,
+        backgroundColor: colorScheme.background,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -69,6 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         title: Text(widget.title),
       ),
