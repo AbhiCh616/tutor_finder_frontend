@@ -1,0 +1,6 @@
+{
+    "homePageTitle": "Flutter Demo Home Page",
+    "@homePageTitle": {
+      "description": "Shown in app bar of home page"
+    }
+}
