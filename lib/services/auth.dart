@@ -5,16 +5,17 @@ import 'package:http/http.dart' as http;
 import 'package:tutor_finder_frontend/constants/api_path.dart' as APIConstants;
 
 class Auth {
-  final _storage = FlutterSecureStorage();
+  Auth(this._storage);
+  final ISecureStorage _storage;
   var headers = {'Content-Type': 'application/json'};
 
   Future<bool> isLoggedIn() async {
-    final isLoggedIn = await _storage.containsKey(key: 'token');
+    final isLoggedIn = await _storage.hasToken();
     return isLoggedIn;
   }
 
-  logOut() async {
-    await _storage.delete(key: 'token');
+  logOut() {
+    _storage.deleteToken();
   }
 
   Future<bool> createAccount(String email, String password) async {
@@ -25,7 +26,7 @@ class Auth {
     if (response.statusCode == 201) {
       var jsonResponse = jsonDecode(response.body);
       var token = jsonResponse['token'];
-      await _storage.write(key: 'token', value: token);
+      _storage.saveToken(token);
       return true;
     }
     return false;
@@ -39,9 +40,33 @@ class Auth {
     if (response.statusCode == 200) {
       var jsonResponse = jsonDecode(response.body);
       var token = jsonResponse['token'];
-      await _storage.write(key: 'token', value: token);
+      _storage.saveToken(token);
       return true;
     }
     return false;
   }
+}
+
+abstract class ISecureStorage {
+  Future<void> saveToken(String token);
+  Future<bool> hasToken();
+  Future<void> deleteToken();
+}
+
+class MySecureStorage implements ISecureStorage {
+  MySecureStorage(this._storage);
+  final FlutterSecureStorage _storage;
+
+  @override
+  Future<void> saveToken(String token) =>
+      _storage.write(key: 'token', value: token);
+
+  @override
+  Future<bool> hasToken() async {
+    final hasToken = await _storage.containsKey(key: 'token');
+    return hasToken;
+  }
+
+  @override
+  Future<void> deleteToken() => _storage.delete(key: 'token');
 }
