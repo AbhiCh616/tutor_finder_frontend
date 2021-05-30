@@ -1,12 +1,13 @@
 import 'dart:convert';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 import 'package:tutor_finder_frontend/constants/api_path.dart' as APIConstants;
 
 class Auth {
-  Auth(this._storage);
+  Auth(this._storage, this.client);
   final ISecureStorage _storage;
+  final Client client;
   var headers = {'Content-Type': 'application/json'};
 
   Future<bool> isLoggedIn() async {
@@ -20,7 +21,7 @@ class Auth {
 
   Future<bool> createAccount(String email, String password) async {
     var body = jsonEncode({'email': email, 'password': password});
-    var response = await http.post(Uri.parse(APIConstants.CREATE_USER_URL),
+    var response = await client.post(Uri.parse(APIConstants.CREATE_USER_URL),
         headers: headers, body: body);
 
     if (response.statusCode == 201) {
@@ -34,7 +35,7 @@ class Auth {
 
   Future<bool> logIn(String email, String password) async {
     var body = jsonEncode({'username': email, 'password': password});
-    var response = await http.post(Uri.parse(APIConstants.LOGIN_USER_URL),
+    var response = await client.post(Uri.parse(APIConstants.LOGIN_USER_URL),
         headers: headers, body: body);
 
     if (response.statusCode == 200) {
