@@ -8,6 +8,7 @@ class Auth {
   Auth(this._storage, this.client);
   final ISecureStorage _storage;
   final http.Client client;
+
   var headers = {'Content-Type': 'application/json'};
 
   Future<bool> isLoggedIn() async {
