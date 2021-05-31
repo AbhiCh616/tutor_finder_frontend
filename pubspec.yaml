@@ -18,11 +18,13 @@ dependencies:
   intl: ^0.17.0
   flutter_secure_storage: ^4.2.0
   http: ^0.13.3
+  auto_route: ^2.2.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   mockito: ^5.0.9
+  auto_route_generator: ^2.1.0
   build_runner: ^2.0.4
 
 flutter:
