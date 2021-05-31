@@ -78,7 +78,15 @@ class MyApp extends StatelessWidget {
         primaryColor: colorScheme.primary,
         accentColor: colorScheme.secondary,
         backgroundColor: colorScheme.background,
-        buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.primary),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+          ),
+        ),
       ),
       routerDelegate: _appRouter.delegate(),
       routeInformationParser: _appRouter.defaultRouteParser(),
