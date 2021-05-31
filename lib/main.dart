@@ -46,8 +46,8 @@ class MyApp extends StatelessWidget {
     final ColorScheme colorScheme = ColorScheme.light(
       primary: Color(0xFFF0F0F0),
       secondary: Color(0xFF872CC2),
-      primaryVariant: Color(0xFF540091),
-      secondaryVariant: Color(0xFFBEBEBE),
+      primaryVariant: Color(0xFFBEBEBE),
+      secondaryVariant: Color(0xFF540091),
       onPrimary: Color(0xFF000000),
       onSecondary: Color(0xFFFFFFFF),
       surface: Color(0xFFFFFFFF),
@@ -78,6 +78,7 @@ class MyApp extends StatelessWidget {
         primaryColor: colorScheme.primary,
         accentColor: colorScheme.secondary,
         backgroundColor: colorScheme.background,
+        buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.primary),
       ),
       routerDelegate: _appRouter.delegate(),
       routeInformationParser: _appRouter.defaultRouteParser(),
