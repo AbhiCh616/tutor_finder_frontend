@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:tutor_finder_frontend/config/routes/app_router.gr.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AuthButtons extends StatelessWidget {
   @override
@@ -12,7 +13,7 @@ class AuthButtons extends StatelessWidget {
           onPressed: () => AutoRouter.of(context).push(SignupPageRoute()),
           child: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: const Text('Sign up'),
+            child: Text(AppLocalizations.of(context)!.signUp),
           ),
         ),
         SizedBox(
@@ -22,7 +23,7 @@ class AuthButtons extends StatelessWidget {
           onPressed: () => AutoRouter.of(context).push(LoginPageRoute()),
           child: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: const Text('Log in'),
+            child: Text(AppLocalizations.of(context)!.logIn),
           ),
         ),
       ],
