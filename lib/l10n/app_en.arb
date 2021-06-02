@@ -7,5 +7,15 @@
     "logIn": "Log In",
     "@signUp": {
       "description": "Log In"
+    },
+
+    "email": "Email",
+    "@email": {
+      "description": "Email"
+    },
+
+    "password": "Password",
+    "@email": {
+      "description": "Password"
     }
 }

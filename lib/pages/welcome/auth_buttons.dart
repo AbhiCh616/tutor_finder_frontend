@@ -11,20 +11,14 @@ class AuthButtons extends StatelessWidget {
       children: [
         ElevatedButton(
           onPressed: () => AutoRouter.of(context).push(SignupPageRoute()),
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Text(AppLocalizations.of(context)!.signUp),
-          ),
+          child: Text(AppLocalizations.of(context)!.signUp),
         ),
         SizedBox(
           height: 16,
         ),
         ElevatedButton(
           onPressed: () => AutoRouter.of(context).push(LoginPageRoute()),
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Text(AppLocalizations.of(context)!.logIn),
-          ),
+          child: Text(AppLocalizations.of(context)!.logIn),
         ),
       ],
     );

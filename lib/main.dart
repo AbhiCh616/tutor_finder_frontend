@@ -44,12 +44,12 @@ class MyApp extends StatelessWidget {
     );
 
     final ColorScheme colorScheme = ColorScheme.light(
-      primary: Color(0xFFF0F0F0),
-      secondary: Color(0xFF872CC2),
-      primaryVariant: Color(0xFFBEBEBE),
-      secondaryVariant: Color(0xFF540091),
-      onPrimary: Color(0xFF000000),
-      onSecondary: Color(0xFFFFFFFF),
+      secondary: Color(0xFFF0F0F0),
+      primary: Color(0xFF872CC2),
+      secondaryVariant: Color(0xFFBEBEBE),
+      primaryVariant: Color(0xFF540091),
+      onSecondary: Color(0xFF000000),
+      onPrimary: Color(0xFFFFFFFF),
       surface: Color(0xFFFFFFFF),
       onSurface: Color(0xFF000000),
       background: Color(0xFFF0F0F0),
@@ -80,12 +80,20 @@ class MyApp extends StatelessWidget {
         backgroundColor: colorScheme.background,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
+            padding: MaterialStateProperty.all<EdgeInsets>(
+                EdgeInsets.symmetric(vertical: 24)),
             shape: MaterialStateProperty.all(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
               ),
             ),
           ),
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: colorScheme.surface,
+          contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 24),
+          border: OutlineInputBorder(),
         ),
       ),
       routerDelegate: _appRouter.delegate(),
