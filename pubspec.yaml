@@ -19,6 +19,7 @@ dependencies:
   flutter_secure_storage: ^4.2.0
   http: ^0.13.3
   auto_route: ^2.2.0
+  provider: ^5.0.0
 
 dev_dependencies:
   flutter_test:

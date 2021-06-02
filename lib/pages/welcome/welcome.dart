@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tutor_finder_frontend/pages/welcome/auth_buttons.dart';
+import 'package:tutor_finder_frontend/providers/auth_creds.dart';
 
 class WelcomePage extends StatelessWidget {
   @override
@@ -11,7 +13,10 @@ class WelcomePage extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 16, right: 16, bottom: 32),
-              child: AuthButtons(),
+              child: ChangeNotifierProvider<AuthCreds>(
+                create: (_) => AuthCreds(),
+                child: AuthButtons(),
+              ),
             ),
           ],
         ),
