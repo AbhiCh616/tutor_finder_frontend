@@ -9,6 +9,8 @@ import 'package:flutter/material.dart' as _i2;
 import 'package:tutor_finder_frontend/pages/login/login.dart' as _i5;
 import 'package:tutor_finder_frontend/pages/signup/signup.dart' as _i6;
 import 'package:tutor_finder_frontend/pages/splash/splash.dart' as _i3;
+import 'package:tutor_finder_frontend/pages/tutor_register/tut_reg_basic.dart'
+    as _i7;
 import 'package:tutor_finder_frontend/pages/welcome/welcome.dart' as _i4;
 
 class AppRouter extends _i1.RootStackRouter {
@@ -36,6 +38,11 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (_) {
           return _i6.SignupPage();
+        }),
+    BasicInfoTutorRegRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i7.BasicInfoTutorRegPage();
         })
   };
 
@@ -44,7 +51,9 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(SplashPageRoute.name, path: '/splash-page'),
         _i1.RouteConfig(WelcomePageRoute.name, path: '/'),
         _i1.RouteConfig(LoginPageRoute.name, path: '/login-page'),
-        _i1.RouteConfig(SignupPageRoute.name, path: '/signup-page')
+        _i1.RouteConfig(SignupPageRoute.name, path: '/signup-page'),
+        _i1.RouteConfig(BasicInfoTutorRegRoute.name,
+            path: '/basic-info-tutor-reg')
       ];
 }
 
@@ -70,4 +79,10 @@ class SignupPageRoute extends _i1.PageRouteInfo {
   const SignupPageRoute() : super(name, path: '/signup-page');
 
   static const String name = 'SignupPageRoute';
+}
+
+class BasicInfoTutorRegRoute extends _i1.PageRouteInfo {
+  const BasicInfoTutorRegRoute() : super(name, path: '/basic-info-tutor-reg');
+
+  static const String name = 'BasicInfoTutorRegRoute';
 }

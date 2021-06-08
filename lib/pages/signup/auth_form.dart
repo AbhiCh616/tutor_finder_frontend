@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:tutor_finder_frontend/functions/auth_helpers.dart';
 import 'package:tutor_finder_frontend/providers/auth_creds.dart';
 
 class AuthForm extends StatefulWidget {
+  final Function changeProgressStatus;
+  final Function goToNextScreen;
+  AuthForm(this.changeProgressStatus, this.goToNextScreen);
+
   @override
   _AuthFormState createState() => _AuthFormState();
 }
@@ -15,6 +20,17 @@ class _AuthFormState extends State<AuthForm> {
     setState(() {
       _isObscure = !_isObscure;
     });
+  }
+
+  void _onSubmit(String email, String password) async {
+    bool _isLoggedIn = false;
+    this.widget.changeProgressStatus();
+    _isLoggedIn = await userSignUp(email, password);
+    if (_isLoggedIn) {
+      this.widget.goToNextScreen();
+    } else {
+      this.widget.changeProgressStatus();
+    }
   }
 
   @override
@@ -51,7 +67,7 @@ class _AuthFormState extends State<AuthForm> {
               height: 24,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () => _onSubmit(authCreds.email, authCreds.password),
               child: Text(AppLocalizations.of(context)!.signUp.toUpperCase()),
             ),
           ],
