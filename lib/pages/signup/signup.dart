@@ -21,7 +21,7 @@ class _SignupPageState extends State<SignupPage> {
 
   goToNextScreen() {
     AutoRouter.of(context).popUntil((route) => false);
-    //AutoRouter.of(context).push(BasicInfoTutorRegRoute());
+    AutoRouter.of(context).push(RegisterTutorRoute());
   }
 
   @override
