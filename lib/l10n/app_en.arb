@@ -17,5 +17,30 @@
     "password": "Password",
     "@email": {
       "description": "Password"
+    },
+
+    "step": "Step",
+    "@step": {
+      "description": "Used in text 'Step _ of _;"
+    },
+
+    "of_lc": "of",
+    "@of_lc": {
+      "description": "Used in text 'Step _ of _;"
+    },
+
+    "tutorRegistration": "Tutor Registration",
+    "@tutorRegistration": {
+      "description": "For app bar during registration"
+    },
+
+    "back": "Back",
+    "@back": {
+      "description": "For back button"
+    },
+
+    "next": "Next",
+    "@next": {
+      "description": "For next button"
     }
 }
